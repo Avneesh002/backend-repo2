@@ -11,6 +11,10 @@ const { authentication } = require("./Middlewares/authentication.middleware");
 app.use(express.json());
 app.use(cors());
 
+app.get("/", (req, res) => {
+  res.send({ msg: "Homepage" });
+});
+
 app.use("/users", userRouter);
 app.use(authentication);
 app.use("/posts", postRouter);
